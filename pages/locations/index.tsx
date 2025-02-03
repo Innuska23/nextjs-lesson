@@ -1,13 +1,9 @@
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { API } from "../../assets/api/api";
 import {
-  CharacterType,
   LocationType,
   ResponseType,
 } from "../../assets/api/rick-and-morty-api";
-import { Header } from "../../components/Header/Header";
 import { PageWrapper } from "../../components/PageWrapper/PageWrapper";
-import { getCipherInfo } from "crypto";
 import { Card } from "../../components/Card/Card";
 import { getLayout } from "../../components/Layout/BaseLayout/BaseLayout";
 
