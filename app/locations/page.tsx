@@ -42,5 +42,4 @@ const Locations = () => {
   );
 };
 
-Locations.getLayout = getLayout;
 export default Locations;
