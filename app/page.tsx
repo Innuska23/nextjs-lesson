@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { NextPageWithLayout } from "../pages/_app";
 import { PageWrapper } from "../components/PageWrapper/PageWrapper";

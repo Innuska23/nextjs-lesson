@@ -1,15 +1,17 @@
+"use client";
+
 import styled from "styled-components";
 import { LinkBlock } from "./LinkBlock/LinkBlock";
 
-export const Header = () => (
+function Header() {
   <Navbar>
     <LinkBlock title={"Characters"} />
     <LinkBlock title={"Locations"} />
     <LinkBlock title={"Episodes"} />
     <LinkBlock title={"Test"} />
     <LinkBlock title={"Private"} />
-  </Navbar>
-);
+  </Navbar>;
+}
 
 const Navbar = styled.div`
   display: flex;
@@ -23,3 +25,5 @@ const Navbar = styled.div`
     text-align: center;
   }
 `;
+
+export default Header;

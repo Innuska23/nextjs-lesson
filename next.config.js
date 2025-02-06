@@ -1,8 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
   webpack: (config) => {
-    config.resolve.fallback = { process: require.resolve("process/browser") };
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve.fallback,
+        process: false,
+      },
+    };
     return config;
   },
   images: {
