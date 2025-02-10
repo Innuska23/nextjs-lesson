@@ -1,17 +1,16 @@
 import Providers from "./providers";
+import BaseLayout from "../components/BaseLayout/BaseLayout";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <Providers>
-          <main>{children}</main>
+          <BaseLayout>{children}</BaseLayout>
         </Providers>
       </body>
     </html>
   );
 }
+
+export default RootLayout;

@@ -8,14 +8,14 @@ import {
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import Card from "../../components/Card/Card";
 
-const getLocations = async () => {
-  const res = await fetch("https://rickandmortyapi.com/api/location", {
+const getLocations = async (): Promise<ResponseType<LocationType>> => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_RICK_API_URL}/location`, {
     method: "GET",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch locations");
   }
-  return res.json();
+  return await res.json();
 };
 
 function Locations() {

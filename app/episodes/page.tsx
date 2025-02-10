@@ -7,7 +7,9 @@ import getLayout from "../../components/Layout/BaseLayout/BaseLayout";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 
 const getEpisodes = async (): Promise<ResponseType<EpisodeType>> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_RICK_API_URL}/episode`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_RICK_API_URL}/episode`, {
+    next: { revalidate: 60 },
+  });
 
   return await res.json();
 };
