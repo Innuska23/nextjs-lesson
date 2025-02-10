@@ -5,8 +5,8 @@ import {
   LocationType,
   ResponseType,
 } from "../../assets/api/rick-and-morty-api";
-import { PageWrapper } from "../../components/PageWrapper/PageWrapper";
-import { Card } from "../../components/Card/Card";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import Card from "../../components/Card/Card";
 
 const getLocations = async () => {
   const res = await fetch("https://rickandmortyapi.com/api/location", {

@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 
 import styled from "styled-components";
@@ -7,7 +9,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
       <Header />
@@ -28,3 +30,5 @@ const Main = styled.div`
   padding-bottom: 10px;
   overflow: hidden;
 `;
+
+export default Layout;

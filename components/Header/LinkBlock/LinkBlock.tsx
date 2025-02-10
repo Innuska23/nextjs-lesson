@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -5,7 +7,7 @@ type PropsType = {
   title: string;
 };
 
-export const LinkBlock = (props: PropsType) => {
+const LinkBlock = (props: PropsType) => {
   const { title } = props;
 
   return (
@@ -37,3 +39,5 @@ const LinkWrapper = styled.div`
     }
   }
 `;
+
+export default LinkBlock;

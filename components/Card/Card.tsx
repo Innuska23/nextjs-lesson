@@ -1,3 +1,5 @@
+"use client";
+
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
@@ -5,7 +7,7 @@ type PropsType = {
   name: string;
 };
 
-export const Card = (props: PropsWithChildren<PropsType>) => {
+const Card = (props: PropsWithChildren<PropsType>) => {
   const { children, name } = props;
 
   return (
@@ -29,3 +31,5 @@ const Name = styled.div`
   font-weight: 600;
   font-size: 24px;
 `;
+
+export default Card;

@@ -1,10 +1,12 @@
+"use client";
+
 import Head from "next/head";
 
 type PropsType = {
   title?: string;
 };
 
-export const HeadMeta = (props: PropsType) => {
+const HeadMeta = (props: PropsType) => {
   const { title } = props;
 
   const description = title
@@ -19,3 +21,5 @@ export const HeadMeta = (props: PropsType) => {
     </Head>
   );
 };
+
+export default HeadMeta;
