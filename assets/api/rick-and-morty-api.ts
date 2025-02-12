@@ -1,8 +1,8 @@
 import { AxiosInstance } from "axios";
-import {Nullable} from '../types/Nullable';
+import { Nullable } from '../types/Nullable';
 
 export class RickAndMortyApi {
-  constructor(private instance: AxiosInstance) {}
+  constructor(private instance: AxiosInstance) { }
 
   public getCharacters(params?: ParamsType) {
     return this.instance

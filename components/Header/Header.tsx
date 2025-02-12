@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import LinkBlock from "./LinkBlock/LinkBlock";
+import LangSelect from "../LangSelect/LangSelect";
 
 function Header() {
   return (
@@ -11,6 +12,7 @@ function Header() {
       <LinkBlock title={"Episodes"} />
       {/* <LinkBlock title={"Test"} />
       <LinkBlock title={"Private"} /> */}
+      <LangSelect />
     </Navbar>
   );
 }
