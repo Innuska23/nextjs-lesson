@@ -1,17 +1,18 @@
 "use client";
 
 import styled from "styled-components";
-import LinkBlock from "./LinkBlock/LinkBlock";
 import LangSelect from "../LangSelect/LangSelect";
+import LinkBlock from "./LinkBlock/LinkBlock";
+import { useTranslations } from "../../hooks/useTranslations";
 
 function Header() {
+  const { t } = useTranslations();
+
   return (
     <Navbar>
-      <LinkBlock title={"Characters"} />
-      <LinkBlock title={"Locations"} />
-      <LinkBlock title={"Episodes"} />
-      {/* <LinkBlock title={"Test"} />
-      <LinkBlock title={"Private"} /> */}
+      <LinkBlock title={t.navigation.characters} />
+      <LinkBlock title={t.navigation.locations} />
+      <LinkBlock title={t.navigation.episodes} />
       <LangSelect />
     </Navbar>
   );

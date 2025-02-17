@@ -2,24 +2,27 @@
 
 import Link from "next/link";
 import styled from "styled-components";
+import { useTranslations } from "../../../hooks/useTranslations";
 
-type PropsType = {
+interface LinkBlockProps {
   title: string;
-};
+  href?: string;
+}
 
-const LinkBlock = (props: PropsType) => {
-  const { title } = props;
+const LinkBlock = ({ title, href }: LinkBlockProps) => {
+  const { locale } = useTranslations();
+  const fullHref = href
+    ? `/${locale}${href}`
+    : `/${locale}/${title.toLowerCase()}`;
 
   return (
-    <LinkWrapper>
-      <Link href={`/${title.toLowerCase()}`}>
-        <h2>{title} →</h2>
-      </Link>
-    </LinkWrapper>
+    <Link href={fullHref} passHref>
+      <LinkContainer>{title}</LinkContainer>
+    </Link>
   );
 };
 
-const LinkWrapper = styled.div`
+const LinkContainer = styled.div`
   padding: 20px;
   border-radius: 12px;
   border: 1px solid rgba(131, 134, 135, 0);

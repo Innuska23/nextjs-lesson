@@ -1,22 +1,18 @@
-"use client";
-
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
-type PropsType = {
+interface CardProps {
   name: string;
-};
+}
 
-const Card = (props: PropsWithChildren<PropsType>) => {
-  const { children, name } = props;
-
+export default function Card({ children, name }: PropsWithChildren<CardProps>) {
   return (
     <CardBlock>
       <Name>{name}</Name>
       {children}
     </CardBlock>
   );
-};
+}
 
 const CardBlock = styled.div`
   display: flex;
@@ -31,5 +27,3 @@ const Name = styled.div`
   font-weight: 600;
   font-size: 24px;
 `;
-
-export default Card;

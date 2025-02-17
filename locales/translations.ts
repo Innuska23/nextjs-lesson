@@ -38,7 +38,7 @@ export const translations = {
         }
     },
     ru: {
-        title: "Добро пожаловать в Рики и Морти",
+        title: "Добро пожаловать в Рик и Морти",
         description: "Исследуйте вселенную Рика и Морти",
         navigation: {
             characters: "Персонажи",

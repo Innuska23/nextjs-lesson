@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CharacterType } from "../../../assets/api/rick-and-morty-api";
-import CharacterCard from "../../../components/Card/CharacterCard/CharacterCard";
-import PageWrapper from "../../../components/PageWrapper/PageWrapper";
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
+import { useTranslations } from "../../../../hooks/useTranslations";
+import { CharacterType } from "../../../../assets/api/rick-and-morty-api";
+import PageWrapper from "../../../../components/PageWrapper/PageWrapper";
+import CharacterCard from "../../../../components/Card/CharacterCard/CharacterCard";
 
-const Character = ({ params }: { params: { id: string } }) => {
+
+const Character = ({ params }: { params: { id: string; locale: string } }) => {
   const router = useRouter();
+  const { t, locale } = useTranslations();
   const [character, setCharacter] = useState<CharacterType | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,17 +33,19 @@ const Character = ({ params }: { params: { id: string } }) => {
     fetchCharacter();
   }, [params.id]);
 
-  const goToCharacters = () => router.push("/characters");
+  const goToCharacters = () => router.push(`/${locale}/characters`);
 
-  if (loading) return <div>Loading...</div>;
-  if (!character) return <div>Character not found</div>;
+  if (loading) return <div>{t.common.loading}</div>;
+  if (!character) return <div>{t.common.notFound}</div>;
 
   return (
     <PageWrapper>
       <Container>
-        <IdText>ID: {character.id}</IdText>
+        <IdText>
+          {t.pages.character.id}: {character.id}
+        </IdText>
         <CharacterCard key={character.id} character={character} />
-        <Button onClick={goToCharacters}>GO TO CHARACTERS</Button>
+        <Button onClick={goToCharacters}>{t.common.backToCharacters}</Button>
       </Container>
     </PageWrapper>
   );
