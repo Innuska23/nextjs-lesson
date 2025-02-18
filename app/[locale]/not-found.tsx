@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import PageWrapper from "../components/PageWrapper/PageWrapper";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
 
 const NotFound = () => {
   return (

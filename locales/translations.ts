@@ -8,6 +8,11 @@ export const translations = {
             episodes: "Episodes",
             home: "Home"
         },
+        routes: {
+            characters: "characters",
+            locations: "locations",
+            episodes: "episodes",
+        },
         common: {
             loading: "Loading...",
             notFound: "Not found",
@@ -45,6 +50,11 @@ export const translations = {
             locations: "Локации",
             episodes: "Эпизоды",
             home: "Главная"
+        },
+        routes: {
+            characters: "characters",
+            locations: "locations",
+            episodes: "episodes",
         },
         common: {
             loading: "Загрузка...",
