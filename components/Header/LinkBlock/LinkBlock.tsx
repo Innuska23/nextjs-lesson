@@ -4,23 +4,20 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useTranslations } from "../../../hooks/useTranslations";
 
-interface LinkBlockProps {
+type LinkBlockProps = {
   title: string;
-  href?: string;
-}
+  path: string;
+};
 
-const LinkBlock = ({ title, href }: LinkBlockProps) => {
+function LinkBlock({ title, path }: LinkBlockProps) {
   const { locale } = useTranslations();
-  const fullHref = href
-    ? `/${locale}${href}`
-    : `/${locale}/${title.toLowerCase()}`;
 
   return (
-    <Link href={fullHref} passHref>
+    <Link href={`/${locale}/${path}`}>
       <LinkContainer>{title}</LinkContainer>
     </Link>
   );
-};
+}
 
 const LinkContainer = styled.div`
   padding: 20px;

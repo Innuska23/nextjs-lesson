@@ -8,6 +8,11 @@ export const translations = {
             episodes: "Episodes",
             home: "Home"
         },
+        routes: {
+            characters: "characters",
+            locations: "locations",
+            episodes: "episodes",
+        },
         common: {
             loading: "Loading...",
             notFound: "Not found",
@@ -38,13 +43,18 @@ export const translations = {
         }
     },
     ru: {
-        title: "Добро пожаловать в Рики и Морти",
+        title: "Добро пожаловать в Рик и Морти",
         description: "Исследуйте вселенную Рика и Морти",
         navigation: {
             characters: "Персонажи",
             locations: "Локации",
             episodes: "Эпизоды",
             home: "Главная"
+        },
+        routes: {
+            characters: "characters",
+            locations: "locations",
+            episodes: "episodes",
         },
         common: {
             loading: "Загрузка...",

@@ -1,21 +1,16 @@
-import Header from "../../components/Header/Header";
-import Providers from "../providers";
+import Providers from "./providers";
+import BaseLayout from "../../components/BaseLayout/BaseLayout";
 
-export default function LocaleLayout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={locale}>
+    <html lang="en">
       <body>
         <Providers>
-          <Header />
-          {children}
+          <BaseLayout>{children}</BaseLayout>
         </Providers>
       </body>
     </html>
   );
 }
+
+export default RootLayout;

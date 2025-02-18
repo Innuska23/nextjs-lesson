@@ -9,10 +9,16 @@ export function middleware(request: NextRequest) {
         locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     );
 
-    const isStaticFile = pathname.match(/\.(jpg|jpeg|png|gif|svg|ico|css|js)$/);
-    const shouldHandleLocale = !isStaticFile && !pathnameHasLocale;
+    const isApiRoute = pathname.startsWith('/api');
+    const isStaticFile = /\.(jpg|jpeg|png|gif|svg|ico|css|js)$/.test(pathname);
 
-    if (shouldHandleLocale) {
+    if (pathname === '/') {
+        return NextResponse.redirect(
+            new URL(`/${i18nConfig.defaultLocale}`, request.url)
+        );
+    }
+
+    if (!pathnameHasLocale && !isApiRoute && !isStaticFile) {
         return NextResponse.redirect(
             new URL(`/${i18nConfig.defaultLocale}${pathname}`, request.url)
         );
@@ -20,7 +26,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: [
-        '/((?!api|_next/static|_next/image|assets|favicon.ico).*)',
-    ],
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|assets).*)']
 };

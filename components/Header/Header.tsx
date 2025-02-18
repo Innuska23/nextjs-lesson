@@ -10,9 +10,9 @@ function Header() {
 
   return (
     <Navbar>
-      <LinkBlock title={t.navigation.characters} />
-      <LinkBlock title={t.navigation.locations} />
-      <LinkBlock title={t.navigation.episodes} />
+      <LinkBlock title={t.navigation.characters} path={t.routes.characters} />
+      <LinkBlock title={t.navigation.locations} path={t.routes.locations} />
+      <LinkBlock title={t.navigation.episodes} path={t.routes.episodes} />
       <LangSelect />
     </Navbar>
   );
