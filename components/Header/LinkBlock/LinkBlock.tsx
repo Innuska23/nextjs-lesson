@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+<<<<<<< HEAD
 type PropsType = {
   title: string;
 };
@@ -14,8 +15,22 @@ export const LinkBlock = (props: PropsType) => {
         <h2>{title} →</h2>
       </Link>
     </LinkWrapper>
-  );
+=======
+type LinkBlockProps = {
+  title: string;
+  path: string;
 };
+
+function LinkBlock({ title, path }: LinkBlockProps) {
+  const { locale } = useTranslations();
+
+  return (
+    <Link href={`/${locale}/${path}`}>
+      <LinkContainer>{title}</LinkContainer>
+    </Link>
+>>>>>>> 9841208c7a29a296d109395ffcdeb076d8c5a5e2
+  );
+}
 
 const LinkWrapper = styled.div`
   padding: 20px;
