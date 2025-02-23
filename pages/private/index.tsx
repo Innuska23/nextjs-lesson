@@ -1,11 +1,14 @@
-import { PageWrapper } from "../../components/PageWrapper/PageWrapper";
-import { getLayout } from "../../components/Layout/BaseLayout/BaseLayout";
-import { LoginNavigate } from "../../hoc/LoginNavigate";
+import { NextPageWithLayout } from "../_app";
+import { getLayout } from "components/Layout/BaseLayout/BaseLayout";
+import { PageWrapper } from "components/PageWrapper/PageWrapper";
+import { LoginNavigate } from "hoc/LoginNavigate";
 
-const Private = () => {
+const Private: NextPageWithLayout = () => {
   return (
     <LoginNavigate>
-      <PageWrapper>PRIVATE PAGE</PageWrapper>
+      <PageWrapper>
+        <h1>Private page</h1>
+      </PageWrapper>
     </LoginNavigate>
   );
 };

@@ -1,25 +1,23 @@
-"use client";
-
 import Link from "next/link";
 import styled from "styled-components";
-import { useTranslations } from "../../../hooks/useTranslations";
 
-type LinkBlockProps = {
+type PropsType = {
   title: string;
-  path: string;
 };
 
-function LinkBlock({ title, path }: LinkBlockProps) {
-  const { locale } = useTranslations();
+export const LinkBlock = (props: PropsType) => {
+  const { title } = props;
 
   return (
-    <Link href={`/${locale}/${path}`}>
-      <LinkContainer>{title}</LinkContainer>
-    </Link>
+    <LinkWrapper>
+      <Link href={`/${title.toLowerCase()}`}>
+        <h2>{title} →</h2>
+      </Link>
+    </LinkWrapper>
   );
-}
+};
 
-const LinkContainer = styled.div`
+const LinkWrapper = styled.div`
   padding: 20px;
   border-radius: 12px;
   border: 1px solid rgba(131, 134, 135, 0);
@@ -39,5 +37,3 @@ const LinkContainer = styled.div`
     }
   }
 `;
-
-export default LinkBlock;

@@ -1,17 +1,13 @@
-"use client";
-
 import Head from "next/head";
 
 type PropsType = {
   title?: string;
 };
 
-const HeadMeta = (props: PropsType) => {
+export const HeadMeta = (props: PropsType) => {
   const { title } = props;
 
-  const description = title
-    ? `Rick and Morty ${title.toLowerCase()}`
-    : "Master class for IT-incubator";
+  const description = title ? `Rick and Morty ${title.toLowerCase()}` : "Master class for IT-incubator";
 
   return (
     <Head>
@@ -21,5 +17,3 @@ const HeadMeta = (props: PropsType) => {
     </Head>
   );
 };
-
-export default HeadMeta;

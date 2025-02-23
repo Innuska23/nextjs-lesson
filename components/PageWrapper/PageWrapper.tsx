@@ -1,14 +1,12 @@
-"use client";
-
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
-import HeadMeta from "../HeadMeta/HeadMeta";
+import { HeadMeta } from "../HeadMeta/HeadMeta";
 
 type PropsType = {
   title?: string;
 };
 
-const PageWrapper = (props: PropsWithChildren<PropsType>) => {
+export const PageWrapper = (props: PropsWithChildren<PropsType>) => {
   const { children, title } = props;
 
   return (
@@ -34,5 +32,3 @@ const MainBlock = styled.div`
     padding: 8rem 0 6rem;
   }
 `;
-
-export default PageWrapper;

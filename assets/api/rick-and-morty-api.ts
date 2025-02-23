@@ -1,43 +1,31 @@
 import { AxiosInstance } from "axios";
-import { Nullable } from '../types/Nullable';
+import { Nullable } from "@/types/Nullable";
 
 export class RickAndMortyApi {
-  constructor(private instance: AxiosInstance) { }
+  constructor(private instance: AxiosInstance) {}
 
   public getCharacters(params?: ParamsType) {
-    return this.instance
-      .get<ResponseType<CharacterType>>("/character", { params })
-      .then((res) => res.data);
+    return this.instance.get<ResponseType<CharacterType>>("/character", { params }).then((res) => res.data);
   }
 
   public getCharacter(id: string) {
-    return this.instance
-      .get<CharacterType>(`/character/${id}`)
-      .then((res) => res.data);
+    return this.instance.get<CharacterType>(`/character/${id}`).then((res) => res.data);
   }
 
   public getLocations(params?: ParamsType) {
-    return this.instance
-      .get<ResponseType<LocationType>>("/location", { params })
-      .then((res) => res.data);
+    return this.instance.get<ResponseType<LocationType>>("/location", { params }).then((res) => res.data);
   }
 
   public getLocation(id: string) {
-    return this.instance
-      .get<LocationType>(`/location/${id}`)
-      .then((res) => res.data);
+    return this.instance.get<LocationType>(`/location/${id}`).then((res) => res.data);
   }
 
   public getEpisodes(params?: ParamsType) {
-    return this.instance
-      .get<ResponseType<EpisodeType>>("/episode", { params })
-      .then((res) => res.data);
+    return this.instance.get<ResponseType<EpisodeType>>("/episode", { params }).then((res) => res.data);
   }
 
   public getEpisode(id: string) {
-    return this.instance
-      .get<EpisodeType>(`/episode/${id}`)
-      .then((res) => res.data);
+    return this.instance.get<EpisodeType>(`/episode/${id}`).then((res) => res.data);
   }
 }
 

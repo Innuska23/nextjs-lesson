@@ -1,34 +1,13 @@
-"use client";
+import { NextPage } from "next";
+import { PropsWithChildren } from "react";
+import { Header } from "../Header/Header";
 
-import { ReactNode } from "react";
-
-import styled from "styled-components";
-import Header from "../Header/Header";
-
-type LayoutProps = {
-  children: ReactNode;
-};
-
-const Layout = ({ children }: LayoutProps) => {
+export const Layout: NextPage<PropsWithChildren> = (props) => {
+  const { children } = props;
   return (
-    <Container>
+    <div>
       <Header />
-      <Main>{children}</Main>
-    </Container>
+      {children}
+    </div>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-`;
-
-const Main = styled.div`
-  width: 100%;
-  padding-bottom: 10px;
-  overflow: hidden;
-`;
-
-export default Layout;

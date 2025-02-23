@@ -1,14 +1,12 @@
-"use client";
-
-import Card from "../Card";
+import { Card } from "../Card";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import aliveStatus from "public/statuses/alive.png";
 import deadStatus from "public/statuses/dead.png";
 import unknownStatus from "public/statuses/unknown.png";
-import { CharacterType } from "../../../assets/api/rick-and-morty-api";
-import Status from "../Status/Status";
+import { CharacterType } from "assets/api/rick-and-morty-api";
+import { Status } from "components/Card/CharacterCard/Status/Status";
 
 const statusImages = {
   Alive: aliveStatus,
@@ -20,7 +18,7 @@ type PropsType = {
   character: CharacterType;
 };
 
-const CharacterCard = (props: PropsType) => {
+export const CharacterCard = (props: PropsType) => {
   const { id, name, image, status } = props.character;
 
   return (
@@ -36,5 +34,3 @@ const CharacterCard = (props: PropsType) => {
 const ImageBlock = styled(Image)`
   object-fit: cover;
 `;
-
-export default CharacterCard;

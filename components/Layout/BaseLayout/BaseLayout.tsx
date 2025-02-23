@@ -1,13 +1,23 @@
-"use client";
-
 import { NextPage } from "next";
-import Layout from "../Layout";
 import { PropsWithChildren, ReactElement } from "react";
+import { Layout } from "../Layout";
+import { Contacts } from "../../Contacts/Contacts";
 
-const BaseLayout: NextPage<PropsWithChildren> = (props) => {
+export const BaseLayout: NextPage<PropsWithChildren> = (props) => {
   const { children } = props;
 
   return <Layout>{children}</Layout>;
 };
 
-export default BaseLayout;
+export const getLayout = (page: ReactElement) => {
+  return <BaseLayout>{page}</BaseLayout>;
+};
+
+export const getContactsLayout = (page: ReactElement) => {
+  return (
+    <BaseLayout>
+      {page}
+      <Contacts />
+    </BaseLayout>
+  );
+};

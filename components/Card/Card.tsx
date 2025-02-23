@@ -1,18 +1,20 @@
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
-interface CardProps {
+type PropsType = {
   name: string;
-}
+};
 
-export default function Card({ children, name }: PropsWithChildren<CardProps>) {
+export const Card = (props: PropsWithChildren<PropsType>) => {
+  const { children, name } = props;
+
   return (
     <CardBlock>
       <Name>{name}</Name>
       {children}
     </CardBlock>
   );
-}
+};
 
 const CardBlock = styled.div`
   display: flex;

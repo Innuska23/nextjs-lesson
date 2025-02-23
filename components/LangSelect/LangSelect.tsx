@@ -1,28 +1,25 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { ChangeEvent } from "react";
-import { useTranslations } from "../../hooks/useTranslations";
-import { i18nConfig } from "../../config/i18n";
 
-export default function LangSelect() {
-  const router = useRouter();
-  const { locale } = useTranslations();
+export const LangSelect = () => {
+  const { locale, push, pathname, query, asPath, locales } = useRouter();
 
   const changeLangHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = event.currentTarget.value;
-    if (newLocale !== locale) {
-      router.replace(`/${newLocale}`);
-    }
+    const locale = event.currentTarget.value;
+    push({ pathname, query }, asPath, { locale });
   };
 
   return (
-    <select onChange={changeLangHandler} value={locale}>
-      {i18nConfig.locales.map((loc) => (
-        <option key={loc} value={loc}>
-          {loc.toUpperCase()}
-        </option>
-      ))}
-    </select>
+    <div>
+      <select onChange={changeLangHandler} defaultValue={locale}>
+        {locales?.map((l) => {
+          return (
+            <option value={l} key={l}>
+              {l}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
-}
+};
